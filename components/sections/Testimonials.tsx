@@ -7,35 +7,38 @@
 
 import Image from "next/image";
 import { Play } from "lucide-react";
+import Container from "@/components/ui/Container";
+import Section from "@/components/ui/Section";
 import { Carousel } from "@/components/ui";
 import { testimonials } from "@/data";
 
 export default function Testimonials() {
   return (
-    <section className="relative bg-[#F5F5F5] py-[80px]">
-      <div className="w-[1440px] mx-auto px-[92px]">
+    <Section spacing="lg" className="bg-[#F5F5F5]">
+      <Container>
         {/* Header */}
-        <div className="text-center mb-[60px]">
-          <p className="font-anek font-medium text-[14px] leading-[20px] text-[#fba47e] uppercase mb-[16px]">
+        <div className="text-center mb-12 md:mb-16 lg:mb-[60px]">
+          <p className="font-anek font-medium text-xs md:text-sm leading-tight text-[#fba47e] uppercase mb-3 md:mb-4">
             TESTIMONIALS
           </p>
-          <h2 className="font-anek font-bold text-[48px] leading-[48px] text-[#0b2540]">
+          <h2 className="font-anek font-bold text-3xl md:text-4xl lg:text-5xl leading-tight text-[#0b2540]">
             What Our Users Say?
           </h2>
         </div>
 
-        {/* Testimonials Carousel */}
+        {/* Testimonials Carousel - Responsive */}
         <Carousel itemsPerView={3} gap={24}>
           {testimonials.map((testimonial) => (
             <div
               key={testimonial.id}
-              className="bg-white rounded-[16px] p-[32px] h-full flex flex-col"
+              className="bg-white rounded-2xl p-6 md:p-8 h-full flex flex-col"
             >
               {/* Quote Icon */}
-              <div className="mb-[24px]">
+              <div className="mb-4 md:mb-6">
                 <svg
-                  width="48"
-                  height="48"
+                  width="40"
+                  height="40"
+                  className="md:w-12 md:h-12"
                   viewBox="0 0 48 48"
                   fill="none"
                   xmlns="http://www.w3.org/2000/svg"
@@ -48,14 +51,14 @@ export default function Testimonials() {
               </div>
 
               {/* Quote Text */}
-              <p className="font-noto text-[16px] leading-[24px] text-[#000000] italic mb-[24px] flex-grow">
+              <p className="font-noto text-sm md:text-base leading-relaxed text-[#000000] italic mb-4 md:mb-6 flex-grow">
                 "{testimonial.quote}"
               </p>
 
               {/* Impact Stat */}
               {testimonial.stat && (
-                <div className="mb-[24px]">
-                  <p className="font-anek font-bold text-[16px] leading-[20px] text-[#419372]">
+                <div className="mb-4 md:mb-6">
+                  <p className="font-anek font-bold text-sm md:text-base leading-tight text-[#419372]">
                     {testimonial.stat}
                   </p>
                 </div>
@@ -63,7 +66,7 @@ export default function Testimonials() {
 
               {/* Video Thumbnail or Spacer */}
               {testimonial.type === "video" && testimonial.videoThumbnail && (
-                <div className="relative w-full h-[180px] rounded-[12px] overflow-hidden mb-[24px] group cursor-pointer">
+                <div className="relative w-full h-40 md:h-44 lg:h-[180px] rounded-xl overflow-hidden mb-4 md:mb-6 group cursor-pointer">
                   <Image
                     src={testimonial.videoThumbnail}
                     alt={`${testimonial.name} video testimonial`}
@@ -80,10 +83,10 @@ export default function Testimonials() {
               )}
 
               {/* Author Info */}
-              <div className="flex items-center gap-[12px] mt-auto">
+              <div className="flex items-center gap-3 mt-auto">
                 {/* Avatar - Smaller circular image */}
                 {testimonial.image && (
-                  <div className="relative w-[48px] h-[48px] rounded-full overflow-hidden flex-shrink-0 bg-gray-200">
+                  <div className="relative w-10 h-10 md:w-12 md:h-12 rounded-full overflow-hidden flex-shrink-0 bg-gray-200">
                     <Image
                       src={testimonial.image}
                       alt={testimonial.name}
@@ -95,15 +98,15 @@ export default function Testimonials() {
 
                 {/* Name and Organization */}
                 <div>
-                  <p className="font-anek font-bold text-[16px] leading-[20px] text-[#0b2540]">
+                  <p className="font-anek font-bold text-sm md:text-base leading-tight text-[#0b2540]">
                     {testimonial.name}
                   </p>
                   {testimonial.position && (
-                    <p className="font-noto text-[13px] leading-[18px] text-[#000000] opacity-70">
+                    <p className="font-noto text-xs md:text-sm leading-tight text-[#000000] opacity-70">
                       {testimonial.position}
                     </p>
                   )}
-                  <p className="font-anek text-[13px] leading-[18px] text-[#419372]">
+                  <p className="font-anek text-xs md:text-sm leading-tight text-[#419372]">
                     {testimonial.organization}
                   </p>
                 </div>
@@ -111,7 +114,7 @@ export default function Testimonials() {
             </div>
           ))}
         </Carousel>
-      </div>
-    </section>
+      </Container>
+    </Section>
   );
 }

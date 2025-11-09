@@ -4,6 +4,8 @@
  */
 
 import Image from "next/image";
+import Container from "@/components/ui/Container";
+import Section from "@/components/ui/Section";
 
 const features = [
   {
@@ -34,28 +36,28 @@ const features = [
 
 export default function Transparency() {
   return (
-    <section className="relative bg-white py-[80px]">
-      <div className="w-[1440px] mx-auto px-[92px]">
+    <Section spacing="lg" className="bg-white">
+      <Container>
         {/* Header */}
-        <div className="text-center mb-[60px]">
-          <p className="font-anek font-medium text-[14px] leading-[20px] text-[#fba47e] uppercase mb-[16px]">
+        <div className="text-center mb-12 md:mb-16 lg:mb-[60px]">
+          <p className="font-anek font-medium text-xs md:text-sm leading-tight text-[#fba47e] uppercase mb-3 md:mb-4">
             FOR DONORS
           </p>
-          <h2 className="font-anek font-bold text-[48px] leading-[48px] text-[#0b2540] mb-[24px]">
+          <h2 className="font-anek font-bold text-3xl md:text-4xl lg:text-5xl leading-tight text-[#0b2540] mb-4 md:mb-6">
             Transparency You Can Trust
           </h2>
-          <p className="font-noto text-[16px] leading-[24px] text-[#000000] max-w-[760px] mx-auto">
-            Avni gives funders <span className="bg-[#FFF4E6]">real-time visibility and reliable data</span> — turning impact into measurable insight.
+          <p className="font-noto text-sm md:text-base leading-relaxed text-[#000000] max-w-3xl mx-auto px-4">
+            Avni gives funders <span className="bg-[#FFF4E6] px-1">real-time visibility and reliable data</span> — turning impact into measurable insight.
           </p>
         </div>
 
-        {/* Features Grid - 2x2 */}
-        <div className="grid grid-cols-2 gap-x-[80px] gap-y-[60px]">
+        {/* Features Grid - 1→2 columns */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 lg:gap-x-20 lg:gap-y-[60px]">
           {features.map((feature) => (
-            <div key={feature.id} className="flex gap-[24px] items-start">
+            <div key={feature.id} className="flex gap-4 md:gap-6 items-start">
               {/* Icon */}
               <div className="flex-shrink-0">
-                <div className="relative w-[48px] h-[48px]">
+                <div className="relative w-10 h-10 md:w-12 md:h-12">
                   <Image
                     src={feature.icon}
                     alt={feature.title}
@@ -68,19 +70,19 @@ export default function Transparency() {
               {/* Content */}
               <div className="flex-1">
                 {/* Title */}
-                <h3 className="font-anek font-bold text-[20px] leading-[24px] text-[#0b2540] mb-[12px]">
+                <h3 className="font-anek font-bold text-lg md:text-xl leading-tight text-[#0b2540] mb-3">
                   {feature.title}
                 </h3>
 
                 {/* Description */}
-                <p className="font-noto text-[14px] leading-[22px] text-[#000000]">
+                <p className="font-noto text-sm md:text-base leading-relaxed text-[#000000]">
                   {feature.description}
                 </p>
               </div>
             </div>
           ))}
         </div>
-      </div>
-    </section>
+      </Container>
+    </Section>
   );
 }

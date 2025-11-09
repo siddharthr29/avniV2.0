@@ -5,14 +5,16 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import Container from "@/components/ui/Container";
+import Section from "@/components/ui/Section";
 
 export default function CTASection() {
   return (
-    <section className="relative bg-white py-[100px] overflow-hidden">
-      <div className="w-[1440px] mx-auto px-[92px]">
-        <div className="flex items-center gap-[100px]">
+    <Section spacing="xl" className="bg-white overflow-hidden">
+      <Container>
+        <div className="flex flex-col lg:flex-row items-center gap-12 md:gap-16 lg:gap-20 xl:gap-[100px]">
           {/* Left Side - Vector 6 contains the complete design */}
-          <div className="relative flex-shrink-0" style={{ width: '540px', height: '440px' }}>
+          <div className="relative flex-shrink-0 w-full lg:w-[540px] aspect-[540/440]">
             {/* Vector 6 - Complete image with organic background blobs */}
             <div className="relative w-full h-full">
               <Image
@@ -26,47 +28,47 @@ export default function CTASection() {
           </div>
 
           {/* Right Side - Content */}
-          <div className="flex-1">
+          <div className="flex-1 text-center lg:text-left">
             {/* Title */}
-            <h2 className="font-anek font-bold text-[48px] leading-[48px] text-[#0b2540] mb-[24px]">
+            <h2 className="font-anek font-bold text-3xl md:text-4xl lg:text-5xl leading-tight text-[#0b2540] mb-4 md:mb-6">
               Built By Non-Profits, For Non-Profits
             </h2>
 
             {/* Description */}
-            <p className="font-noto text-[16px] leading-[24px] text-[#000000] mb-[8px]">
+            <p className="font-noto text-sm md:text-base leading-relaxed text-[#000000] mb-2">
               Ready to Transform Your Field Operations?
             </p>
-            <p className="font-noto text-[16px] leading-[24px] text-[#000000] mb-[32px]">
+            <p className="font-noto text-sm md:text-base leading-relaxed text-[#000000] mb-6 md:mb-8">
               Start your journey with Avni today.
             </p>
-            <p className="font-anek font-bold text-[16px] leading-[24px] text-[#0b2540] mb-[32px]">
+            <p className="font-anek font-bold text-sm md:text-base leading-relaxed text-[#0b2540] mb-6 md:mb-8">
               No credit card required.
             </p>
 
             {/* CTA Buttons */}
-            <div className="flex flex-wrap gap-[16px]">
+            <div className="flex flex-col sm:flex-row flex-wrap gap-3 md:gap-4 justify-center lg:justify-start">
               <Link
                 href="/signup"
-                className="px-[32px] py-[14px] bg-[#419372] text-white rounded-[48px] font-anek font-semibold text-[16px] leading-[20px] hover:bg-[#357a5e] transition-all"
+                className="px-6 md:px-8 py-3 md:py-3.5 bg-[#419372] text-white rounded-full font-anek font-semibold text-sm md:text-base leading-tight hover:bg-[#357a5e] transition-all text-center"
               >
                 Sign Up for Free Trial
               </Link>
               <Link
                 href="/demo"
-                className="px-[32px] py-[14px] border-2 border-[#419372] text-[#419372] rounded-[48px] font-anek font-semibold text-[16px] leading-[20px] hover:bg-[#419372] hover:text-white transition-all"
+                className="px-6 md:px-8 py-3 md:py-3.5 border-2 border-[#419372] text-[#419372] rounded-full font-anek font-semibold text-sm md:text-base leading-tight hover:bg-[#419372] hover:text-white transition-all text-center"
               >
                 Book A Demo
               </Link>
               <Link
                 href="/contact"
-                className="px-[32px] py-[14px] border-2 border-[#419372] text-[#419372] rounded-[48px] font-anek font-semibold text-[16px] leading-[20px] hover:bg-[#419372] hover:text-white transition-all"
+                className="px-6 md:px-8 py-3 md:py-3.5 border-2 border-[#419372] text-[#419372] rounded-full font-anek font-semibold text-sm md:text-base leading-tight hover:bg-[#419372] hover:text-white transition-all text-center"
               >
                 Contact Sales
               </Link>
             </div>
           </div>
         </div>
-      </div>
-    </section>
+      </Container>
+    </Section>
   );
 }

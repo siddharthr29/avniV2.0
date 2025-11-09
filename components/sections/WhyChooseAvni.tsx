@@ -4,6 +4,8 @@
  */
 
 import Image from "next/image";
+import Container from "@/components/ui/Container";
+import Section from "@/components/ui/Section";
 
 const benefits = [
   {
@@ -34,31 +36,31 @@ const benefits = [
 
 export default function WhyChooseAvni() {
   return (
-    <section className="relative bg-[#F5F5F5] py-[80px]">
-      <div className="w-[1440px] mx-auto px-[92px]">
+    <Section spacing="lg" className="bg-[#F5F5F5]">
+      <Container>
         {/* Header */}
-        <div className="text-center mb-[60px]">
-          <p className="font-anek font-medium text-[14px] leading-[20px] text-[#fba47e] uppercase mb-[16px]">
+        <div className="text-center mb-12 md:mb-16 lg:mb-[60px]">
+          <p className="font-anek font-medium text-xs md:text-sm leading-tight text-[#fba47e] uppercase mb-3 md:mb-4">
             SUSTAINABLE TECHNOLOGY FOR NGOS
           </p>
-          <h2 className="font-anek font-bold text-[48px] leading-[48px] text-[#0b2540] mb-[24px]">
+          <h2 className="font-anek font-bold text-3xl md:text-4xl lg:text-5xl leading-tight text-[#0b2540] mb-4 md:mb-6">
             Why Choose Avni?
           </h2>
-          <p className="font-noto text-[16px] leading-[24px] text-[#000000] max-w-[760px] mx-auto">
+          <p className="font-noto text-sm md:text-base leading-relaxed text-[#000000] max-w-3xl mx-auto px-4">
             Still managing field data on paper? Avni helps you go digital — easily, affordably, and with the support you need at every step. Here's how we make your transition smooth and effective:
           </p>
         </div>
 
-        {/* Benefits Grid - 4 columns */}
-        <div className="grid grid-cols-4 gap-[24px]">
+        {/* Benefits Grid - 1→2→4 columns */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
           {benefits.map((benefit) => (
             <div
               key={benefit.id}
-              className="bg-white rounded-[16px] p-[32px] text-center hover:shadow-lg transition-all duration-300"
+              className="bg-white rounded-2xl p-6 md:p-8 text-center hover:shadow-lg transition-all duration-300"
             >
               {/* Icon */}
-              <div className="flex justify-center mb-[24px]">
-                <div className="relative w-[80px] h-[80px]">
+              <div className="flex justify-center mb-4 md:mb-6">
+                <div className="relative w-16 h-16 md:w-20 md:h-20">
                   <Image
                     src={benefit.icon}
                     alt={benefit.title}
@@ -69,18 +71,18 @@ export default function WhyChooseAvni() {
               </div>
 
               {/* Title */}
-              <h3 className="font-anek font-bold text-[20px] leading-[24px] text-[#0b2540] mb-[16px]">
+              <h3 className="font-anek font-bold text-lg md:text-xl leading-tight text-[#0b2540] mb-3 md:mb-4">
                 {benefit.title}
               </h3>
 
               {/* Description */}
-              <p className="font-noto text-[14px] leading-[22px] text-[#000000]">
+              <p className="font-noto text-sm md:text-base leading-relaxed text-[#000000]">
                 {benefit.description}
               </p>
             </div>
           ))}
         </div>
-      </div>
-    </section>
+      </Container>
+    </Section>
   );
 }
