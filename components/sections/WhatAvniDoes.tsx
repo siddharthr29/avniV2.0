@@ -1,0 +1,138 @@
+import Image from "next/image";
+import Link from "next/link";
+import Container from "@/components/ui/Container";
+import Section from "@/components/ui/Section";
+
+export default function WhatAvniDoes() {
+  return (
+    <Section spacing="lg">
+      <Container>
+        {/* Top Section - Heading */}
+        <div className="text-center mb-12 md:mb-16 lg:mb-20 max-w-4xl mx-auto">
+          <h3 className="font-anek font-medium text-xs md:text-sm lg:text-base leading-tight text-[#fba47e] uppercase mb-3 md:mb-4">
+            What Avni does?
+          </h3>
+          
+          <h2 className="font-anek font-semibold text-3xl md:text-4xl lg:text-[42px] leading-tight text-[#0b2540] mb-3 md:mb-4">
+            A <span className="relative inline-block">
+              <span className="relative z-10">Sustainable Digitisation</span>
+              <span className="absolute bottom-[6px] left-0 w-full h-[14px] bg-[#FFD166] z-0"></span>
+            </span> Solution
+          </h2>
+          
+          <p className="font-noto font-normal text-sm md:text-base lg:text-lg leading-relaxed text-[#000000] max-w-3xl mx-auto">
+            Avni strives to be a digital partner for NGOs, by understanding their unique needs, providing secure cloud hosting, self-service, training & guidance and offline app to empower field workers- making digital transformation sustainable
+          </p>
+        </div>
+
+        {/* Feature 1: Build Trust - Image Right, Content Left */}
+        <div className="mb-16 md:mb-20 lg:mb-24">
+          <div className="flex flex-col lg:flex-row gap-8 lg:gap-14 items-center">
+            {/* Content Left */}
+            <div className="w-full lg:w-1/2">
+              <h3 className="font-anek font-bold text-2xl md:text-3xl lg:text-[36px] leading-tight lg:leading-[40px] text-[#0b2540] mb-4 md:mb-6 text-center lg:text-left">
+                Build Trust With One Source Of Truth
+              </h3>
+              <p className="font-noto text-sm md:text-base lg:text-[16px] leading-relaxed lg:leading-[26px] text-[#000000] mb-6 md:mb-8 text-center lg:text-left">
+                Give every stakeholder access to <span className="relative inline-block">
+                  <span className="relative z-10">real-time, reliable information from a single platform</span>
+                  <span className="absolute bottom-[2px] left-0 w-full h-[10px] bg-[#FFD166] z-0"></span>
+                </span>. Avni ensures consistency and transparency so your teams can make decisions with confidence.
+              </p>
+              <div className="flex justify-center lg:justify-start">
+                <Link 
+                  href="/features" 
+                  className="inline-flex items-center justify-center px-6 py-3 border-2 border-[#419372] text-[#419372] rounded-[20px] font-anek font-medium text-sm hover:bg-[#419372] hover:text-white transition-all"
+                >
+                  Read More →
+                </Link>
+              </div>
+            </div>
+            
+            {/* Image Right */}
+            <div className="w-full lg:w-1/2 relative aspect-video rounded-2xl overflow-hidden shadow-lg">
+              <Image
+                src="/images/build-trust.png"
+                alt="Build Trust With One Source Of Truth"
+                fill
+                className="object-cover"
+              />
+            </div>
+          </div>
+        </div>
+
+        {/* Feature 2: Simplify Data - Image Left, Content Right */}
+        <div className="mb-16 md:mb-20 lg:mb-24">
+          <div className="flex flex-col lg:flex-row gap-8 lg:gap-14 items-center">
+            {/* Image Left */}
+            <div className="w-full lg:w-1/2 relative aspect-video rounded-2xl overflow-hidden shadow-lg">
+              <Image
+                src="/images/simplify-data.png"
+                alt="Simplify Data Collection And Management"
+                fill
+                className="object-cover"
+              />
+            </div>
+            
+            {/* Content Right */}
+            <div className="w-full lg:w-1/2">
+              <h3 className="font-anek font-bold text-2xl md:text-3xl lg:text-[36px] leading-tight lg:leading-[40px] text-[#0b2540] mb-4 md:mb-6 text-center lg:text-left">
+                Simplify Data Collection And Management
+              </h3>
+              <p className="font-noto text-sm md:text-base lg:text-[16px] leading-relaxed lg:leading-[26px] text-[#000000] mb-6 md:mb-8 text-center lg:text-left">
+                Free your teams from the burden of <span className="relative inline-block">
+                  <span className="relative z-10">manual paperwork and scattered spreadsheets</span>
+                  <span className="absolute bottom-[2px] left-0 w-full h-[10px] bg-[#FFD166] z-0"></span>
+                </span>. Avni streamlines field data collection so you can focus on what matters most — impact on the ground.
+              </p>
+              <div className="flex justify-center lg:justify-start">
+                <Link 
+                  href="/features" 
+                  className="inline-flex items-center justify-center px-6 py-3 border-2 border-[#419372] text-[#419372] rounded-[20px] font-anek font-medium text-sm hover:bg-[#419372] hover:text-white transition-all"
+                >
+                  Read More →
+                </Link>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Feature 3: Steer Programs - Image Right, Content Left */}
+        <div>
+          <div className="flex flex-col lg:flex-row gap-8 lg:gap-14 items-center">
+            {/* Content Left */}
+            <div className="w-full lg:w-1/2">
+              <h3 className="font-anek font-bold text-2xl md:text-3xl lg:text-[36px] leading-tight lg:leading-[40px] text-[#0b2540] mb-4 md:mb-6 text-center lg:text-left">
+                Steer Your Programs With Insight And Agility
+              </h3>
+              <p className="font-noto text-sm md:text-base lg:text-[16px] leading-relaxed lg:leading-[26px] text-[#000000] mb-6 md:mb-8 text-center lg:text-left">
+                Access <span className="relative inline-block">
+                  <span className="relative z-10">accurate, real-time data</span>
+                  <span className="absolute bottom-[2px] left-0 w-full h-[10px] bg-[#FFD166] z-0"></span>
+                </span> that helps you adapt and improve your programs continuously. Use feedback from the field to respond faster and serve your communities more effectively.
+              </p>
+              <div className="flex justify-center lg:justify-start">
+                <Link 
+                  href="/features" 
+                  className="inline-flex items-center justify-center px-6 py-3 border-2 border-[#419372] text-[#419372] rounded-[20px] font-anek font-medium text-sm hover:bg-[#419372] hover:text-white transition-all"
+                >
+                  Read More →
+                </Link>
+              </div>
+            </div>
+            
+            {/* Image Right */}
+            <div className="w-full lg:w-1/2 relative aspect-video rounded-2xl overflow-hidden shadow-lg">
+              <Image
+                src="/images/steer-programs.png"
+                alt="Steer Your Programs With Insight And Agility"
+                fill
+                className="object-cover"
+              />
+            </div>
+          </div>
+        </div>
+      </Container>
+    </Section>
+  );
+}

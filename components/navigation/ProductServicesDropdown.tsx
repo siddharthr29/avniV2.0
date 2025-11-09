@@ -1,0 +1,210 @@
+/**
+ * Product Services Dropdown Component
+ * Figma: Desktop - 6, Group 147 (node 1-615)
+ * Height: 393px, Background: Opaque white
+ */
+
+'use client';
+
+import { useState } from 'react';
+import Image from 'next/image';
+import Link from 'next/link';
+import { productServicesTabs, servicesItems, useCasesItems, featuredBlog } from '@/data/navigation';
+
+interface ProductServicesDropdownProps {
+  isOpen: boolean;
+  onClose: () => void;
+  onMouseEnter?: () => void;
+  onMouseLeave?: () => void;
+}
+
+export default function ProductServicesDropdown({ isOpen, onClose, onMouseEnter, onMouseLeave }: ProductServicesDropdownProps) {
+  const [activeTab, setActiveTab] = useState('use-cases');
+
+  if (!isOpen) return null;
+
+  return (
+    <>
+      {/* Backdrop with fade-in animation */}
+      <div 
+        className="fixed inset-0 top-[72px] bg-black/10 z-40 animate-in fade-in duration-500"
+        onClick={onClose}
+      />
+
+      {/* Dropdown Panel - Opaque White Background with slide-down animation */}
+      <div 
+        className="absolute left-0 right-0 top-[72px] bg-white h-[393px] z-50 shadow-2xl border-t border-gray-100 animate-slideDown"
+        onMouseEnter={onMouseEnter}
+        onMouseLeave={onMouseLeave}
+      >
+        <div className="relative w-[1440px] mx-auto h-full">
+            {/* Tabs Section - Left Side: x=108, y=44 */}
+            <div className="absolute left-[108px] top-[44px] flex flex-col gap-[8px]">
+              {productServicesTabs.map((tab) => (
+                <button
+                  key={tab.id}
+                  onClick={() => setActiveTab(tab.id)}
+                  className={`flex items-center gap-[8px] h-[40px] px-[16px] rounded-[10px] transition-all ${
+                    activeTab === tab.id
+                      ? 'bg-[#fff8f8]'
+                      : 'bg-transparent hover:bg-white/50'
+                  }`}
+                >
+                <div className="relative w-[24px] h-[24px]">
+                  <Image
+                    src={tab.icon}
+                    alt={tab.label}
+                    fill
+                    className="object-contain"
+                  />
+                </div>
+                <span className="font-anek font-medium text-[18px] leading-[20px] text-[rgba(0,0,0,0.8)] capitalize">
+                  {tab.label}
+                </span>
+              </button>
+            ))}
+          </div>
+
+          {/* Vertical Divider Line - Left */}
+          <div className="absolute left-[265px] top-[44px] w-[1px] h-[305px] bg-[rgba(0,0,0,0.1)]" />
+
+          {/* Services Grid - Middle Section: x=305, y=44 */}
+          {activeTab === 'services' && (
+            <div className="absolute left-[305px] top-[44px] w-[680px]">
+              <div className="grid grid-cols-2 gap-x-[62px] gap-y-[28px]">
+                {servicesItems.map((service) => (
+                  <Link
+                    key={service.id}
+                    href={service.link}
+                    className="flex gap-[16px] group"
+                    onClick={onClose}
+                  >
+                    {/* Icon: 30x30 */}
+                    <div className="relative w-[30px] h-[30px] flex-shrink-0">
+                      <Image
+                        src={service.icon}
+                        alt={service.title}
+                        fill
+                        className="object-contain"
+                      />
+                    </div>
+
+                    {/* Content */}
+                    <div className="flex-1">
+                      <h4 className="font-anek font-medium text-[18px] leading-[20px] text-[rgba(0,0,0,0.7)] mb-[8px] group-hover:text-[#419372] transition-colors">
+                        {service.title}
+                      </h4>
+                      <p className="font-noto text-[14px] leading-[20px] text-[#878787]">
+                        {service.description}
+                      </p>
+                    </div>
+                  </Link>
+                ))}
+              </div>
+            </div>
+          )}
+
+          {/* Use Cases Grid - Middle Section: x=305, y=44 */}
+          {activeTab === 'use-cases' && (
+            <div className="absolute left-[305px] top-[44px] w-[680px]">
+              <div className="grid grid-cols-2 gap-x-[62px] gap-y-[28px]">
+                {useCasesItems.map((useCase) => (
+                  <Link
+                    key={useCase.id}
+                    href={useCase.link}
+                    className="flex gap-[16px] group"
+                    onClick={onClose}
+                  >
+                    {/* Icon: 30x30 */}
+                    <div className="relative w-[30px] h-[30px] flex-shrink-0">
+                      <Image
+                        src={useCase.icon}
+                        alt={useCase.title}
+                        fill
+                        className="object-contain"
+                      />
+                    </div>
+
+                    {/* Content */}
+                    <div className="flex-1">
+                      <h4 className="font-anek font-medium text-[18px] leading-[20px] text-[rgba(0,0,0,0.7)] mb-[8px] group-hover:text-[#419372] transition-colors">
+                        {useCase.title}
+                      </h4>
+                      <p className="font-noto text-[14px] leading-[20px] text-[#878787]">
+                        {useCase.description}
+                      </p>
+                    </div>
+                  </Link>
+                ))}
+              </div>
+            </div>
+          )}
+
+          {/* Vertical Divider Line - Right */}
+          <div className="absolute left-[1025px] top-[44px] w-[1px] h-[305px] bg-[rgba(0,0,0,0.1)]" />
+
+          {/* Right Side Content - Conditional based on active tab */}
+          <div className="absolute left-[1065px] top-[44px] w-[283px]">
+            {/* Services Tab - Still in Doubt Section */}
+            {activeTab === 'services' && (
+              <div>
+                <h3 className="font-anek font-extrabold text-[18px] leading-[24px] text-[rgba(0,0,0,0.8)] uppercase tracking-wide mb-[16px]">
+                  STILL IN DOUBT?
+                </h3>
+                <p className="font-noto text-[14px] leading-[20px] text-[rgba(0,0,0,0.7)] mb-[24px]">
+                  Speak To Our Sales Team For Further Details And Any Questions
+                </p>
+                <Link
+                  href="/contact-sales"
+                  className="inline-block px-[24px] py-[12px] bg-[#419372] text-white rounded-[24px] font-anek font-semibold text-[16px] leading-[20px] hover:bg-[#357a5e] transition-colors"
+                  onClick={onClose}
+                >
+                  Contact Sales
+                </Link>
+              </div>
+            )}
+
+            {/* Use Cases Tab - Featured Blog Section */}
+            {activeTab === 'use-cases' && (
+              <>
+                <div className="flex items-center gap-[8px] mb-[16px]">
+                  <div className="relative w-[30px] h-[30px]">
+                    <Image
+                      src="/icons/navigation/featured-blog.svg"
+                      alt="Featured"
+                      fill
+                      className="object-contain"
+                    />
+                  </div>
+                  <span className="font-anek font-bold text-[16px] leading-[20px] text-[rgba(0,0,0,0.6)] uppercase tracking-wide">
+                    FEATURED BLOG
+                  </span>
+                </div>
+
+                <Link
+                  href={featuredBlog.link}
+                  className="block group"
+                  onClick={onClose}
+                >
+                  <div className="relative w-[283px] h-[169px] rounded-[30px] overflow-hidden mb-[16px]">
+                    <Image
+                      src={featuredBlog.image}
+                      alt="Featured Blog"
+                      width={283}
+                      height={169}
+                      className="object-cover group-hover:scale-105 transition-transform duration-300"
+                    />
+                  </div>
+
+                  <p className="font-anek font-medium text-[16px] leading-[20px] text-[rgba(0,0,0,0.7)] capitalize group-hover:text-[#419372] transition-colors w-[283px]">
+                    {featuredBlog.title}
+                  </p>
+                </Link>
+              </>
+            )}
+          </div>
+        </div>
+      </div>
+    </>
+  );
+}
