@@ -6,7 +6,7 @@
  * Matches Figma design pixel-perfect with responsive layout
  */
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, Suspense } from 'react';
 import { useSearchParams } from 'next/navigation';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -253,7 +253,7 @@ const solutionContent = {
   }
 };
 
-export default function SolutionsPage() {
+function SolutionsContent() {
   const searchParams = useSearchParams();
   const [activeTab, setActiveTab] = useState('Education');
 
@@ -415,5 +415,13 @@ export default function SolutionsPage() {
       </main>
       <Footer />
     </>
+  );
+}
+
+export default function SolutionsPage() {
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <SolutionsContent />
+    </Suspense>
   );
 }
