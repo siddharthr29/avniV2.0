@@ -128,7 +128,7 @@ export default function Footer() {
             
             {/* Google Play Button */}
             <a 
-              href="https://play.google.com/store/apps/details?id=com.avniproject" 
+              href="https://play.google.com/store/apps/details?id=com.openchsclient&hl=en_IN" 
               target="_blank" 
               rel="noopener noreferrer"
               className="inline-block mb-[32px] hover:opacity-80 transition-opacity"
