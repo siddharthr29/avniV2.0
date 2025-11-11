@@ -6,7 +6,7 @@
  * Supports anchor links for direct navigation from dropdown
  */
 
-import { useEffect } from 'react';
+import { useEffect, Suspense } from 'react';
 import { useSearchParams } from 'next/navigation';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -121,7 +121,7 @@ const useCases = [
   }
 ];
 
-export default function UseCasesPage() {
+function UseCasesContent() {
   const searchParams = useSearchParams();
 
   // Handle anchor scrolling from dropdown
@@ -251,5 +251,13 @@ export default function UseCasesPage() {
       </main>
       <Footer />
     </>
+  );
+}
+
+export default function UseCasesPage() {
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <UseCasesContent />
+    </Suspense>
   );
 }
