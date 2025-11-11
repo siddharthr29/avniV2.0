@@ -5,7 +5,7 @@
  * n8n-powered form with validation, reCAPTCHA, and success state
  */
 
-import { useState, useRef, FormEvent } from 'react';
+import { useState, FormEvent } from 'react';
 import Link from 'next/link';
 import dynamic from 'next/dynamic';
 import 'react-phone-number-input/style.css';
@@ -49,8 +49,6 @@ export default function SignupForm() {
   const [recaptchaValue, setRecaptchaValue] = useState<string | null>(null);
   const [termsAccepted, setTermsAccepted] = useState(false);
   const [marketingConsent, setMarketingConsent] = useState(false);
-  
-  const recaptchaRef = useRef<any>(null);
 
   // Email validation
   const validateEmail = (email: string) => {
@@ -461,7 +459,6 @@ export default function SignupForm() {
               Security Verification *
             </label>
             <ReCAPTCHA
-              ref={recaptchaRef}
               sitekey="6LfOPawrAAAAAC_5xEjRNFx3RHAw6MY5y3Q2CKc8"
               onChange={(value: string | null) => {
                 setRecaptchaValue(value);
