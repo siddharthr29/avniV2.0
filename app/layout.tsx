@@ -82,9 +82,17 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${anekLatin.variable} ${notoSans.variable}`}>
       <head>
+        {/* DNS Prefetch and Preconnect for external resources */}
+        <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
+        <link rel="dns-prefetch" href="https://www.google-analytics.com" />
+        <link rel="dns-prefetch" href="https://avniproject.app.n8n.cloud" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" crossOrigin="anonymous" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        
         <link rel="icon" href="/favicon.ico" sizes="any" />
         <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
         <meta name="theme-color" content="#419372" />
+        
         {/* Preload critical hero images for faster LCP */}
         <link rel="preload" as="image" href="/vector-1.png" fetchPriority="high" />
         <link rel="preload" as="image" href="/vector-2.png" fetchPriority="high" />
