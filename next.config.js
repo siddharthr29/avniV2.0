@@ -3,7 +3,7 @@ const nextConfig = {
   images: {
     unoptimized: true, // Required for static export
     formats: ['image/avif', 'image/webp'],
-    deviceSizes: [640, 750, 828, 1080, 1200, 1920],
+    deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048],
     imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
     minimumCacheTTL: 31536000,
     dangerouslyAllowSVG: true,
@@ -24,24 +24,22 @@ const nextConfig = {
   // Optimize production builds
   compiler: {
     removeConsole: process.env.NODE_ENV === 'production',
-    reactRemoveProperties: process.env.NODE_ENV === 'production',
   },
-  // Optimize package imports
+  // Optimize package imports and code splitting
   experimental: {
     optimizePackageImports: ['lucide-react', 'react-google-recaptcha', 'react-phone-number-input'],
     optimizeCss: true,
+    webpackBuildWorker: true,
   },
   // Performance optimizations
   poweredByHeader: false,
   // Output for Netlify
   output: 'export',
   trailingSlash: true,
-  // Optimize fonts
-  optimizeFonts: true,
-  // Minify CSS
-  swcMinify: true,
   // Production source maps
   productionBrowserSourceMaps: false,
+  // Turbopack configuration
+  turbopack: {},
 }
 
 module.exports = nextConfig

@@ -6,30 +6,44 @@ import { WebVitals } from "./web-vitals";
 const anekLatin = Anek_Latin({
   subsets: ["latin"],
   variable: "--font-anek-latin",
-  display: "optional",
+  display: "swap",
   preload: true,
   fallback: ["system-ui", "arial"],
   adjustFontFallback: true,
-  weight: ["400", "500", "600", "700"],
+  weight: ["500", "600"],
 });
 
 const notoSans = Noto_Sans({
   subsets: ["latin"],
   variable: "--font-noto-sans",
-  display: "optional",
+  display: "swap",
   preload: true,
   fallback: ["system-ui", "arial"],
   adjustFontFallback: true,
-  weight: ["400", "500", "600", "700"],
+  weight: ["400", "500"],
 });
 
 export const metadata: Metadata = {
-  title: "Avni - Field Data Collection & Monitoring Platform",
+  title: {
+    default: "Avni - Field Data Collection & Monitoring Platform for NGOs",
+    template: "%s | Avni"
+  },
   description: "Digitize your field work with Avni - a powerful platform for case management, reporting, cohort studies, and mobile data collection. Built for NGOs and healthcare programs.",
-  keywords: ["field data collection", "case management", "mobile health", "NGO software", "healthcare monitoring", "data collection platform"],
+  keywords: ["field data collection", "case management", "mobile health", "NGO software", "healthcare monitoring", "data collection platform", "digital field work", "mobile data collection", "NGO technology"],
   authors: [{ name: "Avni" }],
   creator: "Avni",
   publisher: "Avni",
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
   metadataBase: new URL('https://avniproject.org'),
   icons: {
     icon: '/logos/avni-logo.png',
@@ -60,19 +74,8 @@ export const metadata: Metadata = {
     description: "Digitize your field work with Avni - a powerful platform for case management, reporting, and mobile data collection.",
     images: ['/og-image.jpg'],
   },
-  robots: {
-    index: true,
-    follow: true,
-    googleBot: {
-      index: true,
-      follow: true,
-      'max-video-preview': -1,
-      'max-image-preview': 'large',
-      'max-snippet': -1,
-    },
-  },
   verification: {
-    google: 'your-google-verification-code',
+    google: 'verification-pending',
   },
 };
 
@@ -84,16 +87,41 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${anekLatin.variable} ${notoSans.variable}`}>
       <head>
-        {/* DNS Prefetch for external resources */}
-        <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
-        <link rel="dns-prefetch" href="https://www.google-analytics.com" />
+        {/* SEO Meta Tags */}
+        <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+        <meta name="googlebot" content="index, follow" />
+        <meta name="bingbot" content="index, follow" />
+        <meta name="language" content="English" />
+        <meta name="revisit-after" content="7 days" />
+        <meta name="author" content="Avni" />
+        <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
+        
+        {/* Critical inline CSS for above-the-fold content */}
+        <style dangerouslySetInnerHTML={{__html: `
+          body{margin:0;font-family:system-ui,-apple-system,sans-serif}
+          .hero-section{min-height:100vh;display:flex;align-items:center}
+          img{max-width:100%;height:auto}
+        `}} />
+        
+        {/* Preload LCP Image - HIGHEST PRIORITY */}
+        <link 
+          rel="preload" 
+          as="image" 
+          href="/hero-main.webp" 
+          type="image/webp"
+        />
+        
+        {/* Preconnect only for fonts - critical path */}
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         
         <link rel="icon" href="/favicon.ico" sizes="any" />
         <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+        <link rel="canonical" href="https://avniproject.org/" />
         <meta name="theme-color" content="#419372" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, viewport-fit=cover" />
+        <meta name="format-detection" content="telephone=no" />
       </head>
       <body className="font-noto">
-        <WebVitals />
         {children}
       </body>
     </html>

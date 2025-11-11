@@ -81,73 +81,29 @@ export default function Hero() {
         </div>
 
         {/* Hero Image */}
-        <div className="w-full lg:w-1/2 order-1 lg:order-2 relative">
-          <div className="relative aspect-square max-w-md md:max-w-lg lg:max-w-none mx-auto">
-          {/* Vector 1 - Base layer, highest priority */}
-          <div className="absolute inset-0">
-            <Image
-              src="/vector-1.png"
-              alt=""
-              fill
-              className="object-contain"
-              priority
-              fetchPriority="high"
-              sizes="(max-width: 768px) 90vw, (max-width: 1024px) 50vw, 600px"
-              quality={75}
-              loading="eager"
-            />
-          </div>
-          
-          {/* Vector 2 - Second layer */}
-          <div className="absolute inset-0">
-            <Image
-              src="/vector-2.png"
-              alt=""
-              fill
-              className="object-contain"
-              priority
-              sizes="(max-width: 768px) 90vw, (max-width: 1024px) 50vw, 600px"
-              quality={75}
-              loading="eager"
-            />
-          </div>
-          
-          {/* Vector 4 - Third layer */}
-          <div className="absolute inset-0">
-            <Image
-              src="/vector-4.png"
-              alt=""
-              fill
-              className="object-contain"
-              loading="lazy"
-              sizes="(max-width: 768px) 90vw, (max-width: 1024px) 50vw, 600px"
-              quality={75}
-            />
-          </div>
-          
-          {/* Vector 3 - Top layer */}
-          <div className="absolute inset-0">
-            <Image
-              src="/vector-3.png"
-              alt=""
-              fill
-              className="object-contain"
-              loading="lazy"
-              sizes="(max-width: 768px) 90vw, (max-width: 1024px) 50vw, 600px"
-              quality={75}
-            />
-          </div>
-          
-          {/* Play Button - Centered */}
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-10">
-            <button 
-              className="w-20 h-20 md:w-28 md:h-28 lg:w-[133px] lg:h-[133px] bg-white/90 rounded-full flex items-center justify-center hover:scale-110 transition-transform shadow-2xl"
+        <div className="w-full lg:w-1/2 order-1 lg:order-2 relative flex items-center justify-center">
+          <div className="relative w-full max-w-[600px]" style={{ aspectRatio: '1/1' }}>
+            {/* Clickable hero image with play button */}
+            <button
               onClick={() => setIsVideoOpen(true)}
-              aria-label="Play video"
+              className="relative w-full cursor-pointer hover:opacity-95 transition-opacity"
+              aria-label="Play Avni platform video"
             >
-              <Play className="w-10 h-10 md:w-14 md:h-14 lg:w-16 lg:h-16 text-[#1F1F1F] fill-[#1F1F1F] ml-1 md:ml-2" />
+              <Image
+                src="/hero-main.webp"
+                alt="Avni platform - Digitise your field-work, Transform Lives!"
+                width={600}
+                height={600}
+                priority
+                fetchPriority="high"
+                className="w-full h-auto"
+                sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 600px"
+                quality={75}
+                style={{ maxWidth: '100%', height: 'auto', display: 'block', contain: 'layout' }}
+                unoptimized={false}
+                placeholder="empty"
+              />
             </button>
-          </div>
           </div>
         </div>
       </div>

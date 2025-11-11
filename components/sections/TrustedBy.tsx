@@ -26,16 +26,21 @@ export default function TrustedBy() {
                 href={partner.url}
                 target="_blank"
                 rel="noopener noreferrer"
+                title={`Visit ${partner.name} website`}
+                aria-label={`Visit ${partner.name} website`}
                 className="flex-shrink-0 mx-8 md:mx-12 lg:mx-16 hover:scale-110 transition-transform"
               >
                 <div className="relative w-[140px] md:w-[160px] lg:w-[180px] h-[60px] md:h-[70px] lg:h-[80px]">
                   <Image
                     src={partner.logo}
-                    alt={partner.name}
-                    fill
-                    className="object-contain transition-all"
+                    alt={`${partner.name} logo`}
+                    title={partner.name}
+                    width={180}
+                    height={80}
+                    className="object-contain transition-all w-full h-full"
                     loading="lazy"
                     sizes="(max-width: 768px) 140px, (max-width: 1024px) 160px, 180px"
+                    quality={70}
                     style={{
                       filter: partner.name === "Calcutta Kids" ? "invert(1) grayscale(1)" : "grayscale(1)"
                     }}
@@ -56,16 +61,21 @@ export default function TrustedBy() {
                 href={partner.url}
                 target="_blank"
                 rel="noopener noreferrer"
+                title={`Visit ${partner.name} website`}
+                aria-label={`Visit ${partner.name} website`}
                 className="flex-shrink-0 mx-8 md:mx-12 lg:mx-16 hover:scale-110 transition-transform"
               >
                 <div className="relative w-[140px] md:w-[160px] lg:w-[180px] h-[60px] md:h-[70px] lg:h-[80px]">
                   <Image
                     src={partner.logo}
-                    alt={partner.name}
-                    fill
-                    className="object-contain transition-all"
+                    alt={`${partner.name} logo`}
+                    title={partner.name}
+                    width={180}
+                    height={80}
+                    className="object-contain transition-all w-full h-full"
                     loading="lazy"
                     sizes="(max-width: 768px) 140px, (max-width: 1024px) 160px, 180px"
+                    quality={70}
                     style={{
                       filter: partner.name === "Calcutta Kids" ? "invert(1) grayscale(1)" : "grayscale(1)"
                     }}
